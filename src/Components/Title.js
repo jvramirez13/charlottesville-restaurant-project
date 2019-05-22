@@ -1,5 +1,5 @@
 import React from "react";
-import './Title.css'
+import "./Title.css";
 
 export default class Layout extends React.Component {
   render() {

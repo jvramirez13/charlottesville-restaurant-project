@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "./Places.css";
+import "leaflet/dist/leaflet.css";
+import Maps from "./Maps.js";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -47,6 +49,10 @@ export default class Layout extends React.Component {
               <li>{opened.name}</li>
               <h3>Ratings: {opened.rating}</h3>
               <h3>Price Level: {opened.price_level}</h3>
+              <Maps
+                lati={opened.geometry.location.lat}
+                long={opened.geometry.location.lng}
+              />
             </div>
           ))}
         </ol>
