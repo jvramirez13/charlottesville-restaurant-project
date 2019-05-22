@@ -1,9 +1,32 @@
-h2,h3{
-    text-align: left
+
+
+
+h2 {
+    padding: 2rem;
+    font-size: 3rem;
 }
 
-li {
+h4{
     text-align: left;
-    font-size: 1.5rem;
-    font-weight: 50;
+    font-weight: 100;
+}
+
+ol {
+    margin: 0 0 20px 20px;
+    columns: 2;
+    -webkit-columns: 2;
+    column-gap: 30px;
+    -webkit-column-gap: 30px;
+    padding:0.01px;
+}
+
+ol li {
+    margin: 0 0 10px 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+#odd-fix ol li {
+    display: inline-block;
+    width: 100%;
 }

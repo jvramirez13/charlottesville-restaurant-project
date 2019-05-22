@@ -1,3 +1,7 @@
+Project Detail:
+
+This project was created with React.JS and the main functionality of the web application is to display Charlottesville restaurants that are currently opened at the time of the launch of the application.  This application utilizes the Google Places API in order to get the information of the restaurants around Charlottesville.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
