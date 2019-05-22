@@ -26,7 +26,7 @@ export default class Layout extends React.Component {
             let openRes = []
             for(let i = 0; i < this.state.locations.length; i++){
                 if(this.state.locations[i].opening_hours.open_now === true){
-                    openRes.push(this.state.locations[i].name)
+                    openRes.push(this.state.locations[i])
                 }
             }
 
@@ -44,15 +44,14 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div>
-          <ul>
-              {this.state.locations.map(resulter => (
-                  <li key={resulter.id}>{resulter.name}</li>
-              ))}
-          </ul>
-          <h2 text-align = "left">OPEN RESTAURANTS:</h2>
-          <ul>
+          <h2 align = "left">CURRENT OPEN RESTAURANTS:</h2>
+          <ul align = "left">
               {this.state.open.map(opened => (
-                  <h2>{opened}</h2>
+                  <div>
+                  <h2>{opened.name}</h2>
+                  <h3>Ratings</h3>
+                  <li>{opened.rating}</li>
+                  </div>
               ))}
           </ul>
       </div>
