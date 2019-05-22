@@ -26,7 +26,7 @@ export default class Layout extends React.Component {
 
             let openRes = []
 
-            for(let i = 0; i < this.state.locations; i++){
+            for(let i = 0; i < this.state.locations.length; i++){
                 if(this.state.locations[i].opening_hours.open_now === true){
                     openRes.push(this.state.locations[i])
                 }
