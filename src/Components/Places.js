@@ -46,13 +46,15 @@ export default class Layout extends React.Component {
         <ol>
           {this.state.open.map(opened => (
             <div>
-              <li>{opened.name}</li>
-              <h3>Ratings: {opened.rating}</h3>
-              <h3>Price Level: {opened.price_level}</h3>
-              <Maps
-                lati={opened.geometry.location.lat}
-                long={opened.geometry.location.lng}
-              />
+              <li>
+                {opened.name}
+                <h4>Ratings: {opened.rating}</h4>
+                <h4>Price Level: {opened.price_level}</h4>
+                <Maps
+                  lati={opened.geometry.location.lat}
+                  long={opened.geometry.location.lng}
+                />
+              </li>
             </div>
           ))}
         </ol>
