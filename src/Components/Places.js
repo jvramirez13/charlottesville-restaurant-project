@@ -16,7 +16,7 @@ export default class Layout extends React.Component {
   componentDidMount() {
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.033554,-78.507980&radius=1500&type=restaurant&key=" +
+        "https://cors-anywhere-hclaunch.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.033554,-78.507980&radius=1500&type=restaurant&key=" +
           API_KEY
       )
       .then(res => {

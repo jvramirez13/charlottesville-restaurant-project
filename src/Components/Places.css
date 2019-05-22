@@ -12,20 +12,18 @@ h4{
 }
 
 ol {
-    margin: 0 0 30px 20px;
+    margin: 0 0 20px 20px;
     columns: 2;
     -webkit-columns: 2;
-    -moz-columns: 2;
     column-gap: 30px;
     -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
+    padding:0.01px;
 }
 
 ol li {
     margin: 0 0 10px 0;
     text-align: left;
     font-weight: bold;
-    padding:2px;
 }
 
 #odd-fix ol li {
