@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./Places.css";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -20,13 +21,6 @@ export default class Layout extends React.Component {
         this.setState({
           locations: res.data.results
         });
-        let resNames = [];
-        {
-          this.state.locations.map(results => resNames.push(results.name));
-        }
-        this.setState({
-          name: resNames
-        });
 
         let openRes = [];
         for (let i = 0; i < this.state.locations.length; i++) {
@@ -46,16 +40,16 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div>
-        <h2 align="left">CURRENT OPEN RESTAURANTS:</h2>
-        <ul align="left">
+        <h2>CURRENT OPEN RESTAURANTS:</h2>
+        <ol>
           {this.state.open.map(opened => (
             <div>
-              <h2>{opened.name}</h2>
-              <h3>Ratings</h3>
-              <li>{opened.rating}</li>
+              <li>{opened.name}</li>
+              <h3>Ratings: {opened.rating}</h3>
+              <h3>Price Level: {opened.price_level}</h3>
             </div>
           ))}
-        </ul>
+        </ol>
       </div>
     );
   }
