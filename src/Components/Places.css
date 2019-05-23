@@ -29,9 +29,10 @@ ol li {
 }
 
 label {
-    font-size: 2rem;
+  font-size: 1rem;
 }
 
-form{
-    font-size: 2rem;
+input {
+  width: 10%;
+  padding: 2px 3px;
 }
