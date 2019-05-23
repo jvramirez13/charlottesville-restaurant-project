@@ -3,15 +3,22 @@ import axios from "axios";
 import "./Places.css";
 import "leaflet/dist/leaflet.css";
 import Maps from "./Maps.js";
+import Tag from "./Tags.js";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export default class Layout extends React.Component {
-  state = {
-    locations: [],
-    name: [],
-    open: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "",
+      locations: [],
+      name: [],
+      open: [],
+      key: "store"
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   componentDidMount() {
     axios
@@ -26,30 +33,66 @@ export default class Layout extends React.Component {
 
         let openRes = [];
         for (let i = 0; i < this.state.locations.length; i++) {
-          if (this.state.locations[i].opening_hours.open_now === true) {
+          if (
+            this.state.locations[i].opening_hours.open_now === true ||
+            this.state.locations[i].opening_hours.open_now === undefined
+          ) {
             openRes.push(this.state.locations[i]);
           }
         }
-
-        console.log(openRes[0]);
-
         this.setState({
           open: openRes
         });
       });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({ key: this.element.value });
+  }
+
   render() {
+    function outputDollar(number) {
+      if (number === 1 || number === undefined) {
+        return <h4>Price Level: $</h4>;
+      } else if (number === 2) {
+        return <h4>Price Level: $$</h4>;
+      } else if (number === 3) {
+        return <h4>Price Level: $$$</h4>;
+      } else if (number === 4) {
+        return <h4>Price Level: $$$$</h4>;
+      } else {
+        return <h4>Price Level: $$$$$</h4>;
+      }
+    }
+
+    let restaurantKey = [];
+    for (let i = 0; i < this.state.open.length; i++) {
+      if (this.state.open[i].types.includes(this.state.key)) {
+        restaurantKey.push(this.state.open[i]);
+      }
+    }
     return (
       <div>
+        {console.log(restaurantKey)}
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Enter the type of establishment you want to filter:
+            <input type="text" ref={el => (this.element = el)} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <Tag tags={this.state.key} array={this.state.open} />
+        <p>{this.state.value}</p>
         <h2>CURRENT OPEN RESTAURANTS:</h2>
         <ol>
-          {this.state.open.map(opened => (
+          {restaurantKey.map(opened => (
             <div>
               <li>
                 {opened.name}
                 <h4>Ratings: {opened.rating}</h4>
-                <h4>Price Level: {opened.price_level}</h4>
+                {outputDollar(opened.price_level)}
+                <h4>Address: {opened.vicinity}</h4>
                 <Maps
                   lati={opened.geometry.location.lat}
                   long={opened.geometry.location.lng}
