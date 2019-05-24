@@ -1,32 +1,38 @@
-
-
-
 h2 {
-    padding: 2rem;
-    font-size: 3rem;
+  padding: 2rem;
+  font-size: 3rem;
 }
 
-h4{
-    text-align: left;
-    font-weight: 100;
+h4 {
+  text-align: left;
+  font-weight: 100;
 }
 
 ol {
-    margin: 0 0 20px 20px;
-    columns: 2;
-    -webkit-columns: 2;
-    column-gap: 30px;
-    -webkit-column-gap: 30px;
-    padding:0.01px;
+  margin: 0 0 20px 20px;
+  columns: 2;
+  -webkit-columns: 2;
+  column-gap: 90px;
+  -webkit-column-gap: 90px;
+  padding: 0.01px;
 }
 
 ol li {
-    margin: 0 0 10px 0;
-    text-align: left;
-    font-weight: bold;
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-weight: bold;
 }
 
 #odd-fix ol li {
-    display: inline-block;
-    width: 100%;
+  display: inline-block;
+  width: 100%;
+}
+
+label {
+  font-size: 1rem;
+}
+
+input {
+  width: 10%;
+  padding: 2px 3px;
 }
