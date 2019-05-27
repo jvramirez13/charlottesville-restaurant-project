@@ -5,7 +5,6 @@ export default class Maps extends React.Component {
   render() {
     return (
       <div>
-        
         <Map
           style={{ height: "140px", width: "60%" }}
           zoom={1}
